@@ -50,6 +50,11 @@ public class Arm extends Subsystem {
 			OI.getInstance().GetBButton().whenReleased(new StopMotor());
 	}
 	
+	public void stopMotor(){
+		m_Motor1.stopMotor();
+		m_Motor2.stopMotor();
+	}
+	
 	public boolean isPressed(){
 		return m_MicroSwitch.get();
 	}
