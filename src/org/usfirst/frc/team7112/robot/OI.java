@@ -45,8 +45,8 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	public Joystick JS = new Joystick(0);
-	Button button_X = new JoystickButton(JS, 2);
-	Button button_B = new JoystickButton(JS, 1);
+	Button button_X = new JoystickButton(JS, 3);
+	Button button_B = new JoystickButton(JS, 2);
 
 	private static OI instance;
 	

@@ -31,11 +31,6 @@ public class Arm extends Subsystem {
 	private Arm() {
 		m_Motor1 = new Spark(m_Spark1);
 		m_MicroSwitch = new DigitalInput(Arm_MicroSwitch);
-		OI.getInstance().GetXButton().whenPressed(new ArmOpen());
-		OI.getInstance().GetBButton().whenPressed(new ArmClose());
-		OI.getInstance().GetXButton().whenReleased(new StopMotor());
-		OI.getInstance().GetBButton().whenReleased(new StopMotor());
-
 		}
 
 	public void setMotorPower(double power) {
@@ -46,12 +41,20 @@ public class Arm extends Subsystem {
 		m_Motor1.stopMotor();
 	}
 	
+	private static void useMotors(){
+		OI.getInstance().GetXButton().whenPressed(new ArmOpen());
+		OI.getInstance().GetBButton().whenPressed(new ArmClose());
+		OI.getInstance().GetXButton().whenReleased(new StopMotor());
+		OI.getInstance().GetBButton().whenReleased(new StopMotor());
+	}
+	
 	public boolean isPressed(){
 		return m_MicroSwitch.get();
 	}
 	
 	public static final void init() {
 		instance = new Arm();
+		useMotors();
 	}
 
 	public static final Arm getInstance() {

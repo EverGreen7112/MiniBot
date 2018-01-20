@@ -21,13 +21,13 @@ public class ArmClose extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Arm.getInstance().setMotorPower(-0.25);
+    	if(Arm.getInstance().isPressed())
+    	Arm.getInstance().setMotorPower(0.25);
     }
     
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	SmartDashboard.putBoolean("micro switch", Arm.getInstance().isPressed());
-    	if(Arm.getInstance().isPressed()) return true;
+    	if(!Arm.getInstance().isPressed()) return true;
         return false;
     }
 

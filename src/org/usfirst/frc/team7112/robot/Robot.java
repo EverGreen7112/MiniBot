@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team7112.robot.subsystems.Arm;
 import org.usfirst.frc.team7112.robot.subsystems.Chassis;
+import org.usfirst.frc.team7112.robot.subsystems.test;
 import org.usfirst.frc.team7112.robot.OI;
 
 /**
@@ -33,6 +34,7 @@ public class Robot extends IterativeRobot {
 		OI.init();
 		Chassis.init();
 		Arm.init();
+		test.init();
 	}
 	
 	/**
@@ -75,7 +77,6 @@ public class Robot extends IterativeRobot {
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
 			autonomousCommand.start();
-		Chassis.init();
 	}
 
 	/**
@@ -105,6 +106,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putBoolean("microSwitch", Arm.getInstance().isPressed());
 	}
 
 	/**
