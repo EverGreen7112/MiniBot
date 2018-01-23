@@ -107,6 +107,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		SmartDashboard.putBoolean("microSwitch", Arm.getInstance().isPressed());
+		SmartDashboard.putBoolean("microSwitch2", Arm.getInstance().isPressed2());
 	}
 
 	/**

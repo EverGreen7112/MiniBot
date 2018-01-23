@@ -21,5 +21,6 @@ public class RobotMap {
 	public static final int Joystick = 0;
 	//MicroSwitch
 	public static final int Arm_MicroSwitch = 9;
+	public static final int Arm_MicroSwitch2 = 0;
 
 }

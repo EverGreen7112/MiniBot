@@ -22,9 +22,9 @@ public class testClaw extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(OI.getInstance().GetLTAxis()>0)
-    		test.getInstance().setMotorPower(OI.getInstance().GetLTAxis()*0.7);
+    		test.getInstance().setMotorPower(OI.getInstance().GetLTAxis()*0.5);
     	else
-    		test.getInstance().setMotorPower(-OI.getInstance().GetRTAxis()*0.7);
+    		test.getInstance().setMotorPower(-OI.getInstance().GetRTAxis()*0.9);
     }
 
     // Make this return true when this Command no longer needs to run execute()
