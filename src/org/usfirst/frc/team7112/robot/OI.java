@@ -75,6 +75,10 @@ public class OI {
 		return JS.getRawAxis(2);
 	}
 	
+	public int GetPOV(){
+		return JS.getPOV(0);
+	}
+	
 	public static final OI getInstance() {
 		return instance;
 	}

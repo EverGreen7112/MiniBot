@@ -23,7 +23,7 @@ public class ArcadeDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Chassis.getInstance().arcadeDrive(OI.getInstance().GetYAxis()*Chassis.getInstance().getDriveMultiplier(), OI.getInstance().GetXAxis()*Chassis.getInstance().getDriveMultiplier());
+    	Chassis.getInstance().arcadeDrive(-OI.getInstance().GetYAxis()*Chassis.getInstance().getDriveMultiplier(), -OI.getInstance().GetXAxis()*Chassis.getInstance().getDriveMultiplier());
     	
     }
 

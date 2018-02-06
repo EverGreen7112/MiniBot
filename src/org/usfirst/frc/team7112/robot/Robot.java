@@ -108,7 +108,8 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		SmartDashboard.putBoolean("microSwitch", Arm.getInstance().isPressed());
 		SmartDashboard.putBoolean("microSwitch2", Arm.getInstance().isPressed2());
-	}
+		SmartDashboard.putNumber("POV", OI.getInstance().GetPOV());
+		}
 
 	/**
 	 * This function is called periodically during test mode

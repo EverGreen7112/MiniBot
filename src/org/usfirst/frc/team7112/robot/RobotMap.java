@@ -10,8 +10,8 @@ public class RobotMap {
 	
 	//Chassis motors
 	public static final int
-			Chassis_Victor_Front_Left = 2,
-			Chassis_Victor_Back_Left = 1;
+			Chassis_Victor_Right = 1,
+			Chassis_Victor_Left = 2;
 	
 	public static final int 
 			Chassis_Talon_Front_Right = 5,

@@ -21,7 +21,7 @@ public class ArmOpen extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(Arm.getInstance().isPressed2())
-    	Arm.getInstance().setMotorPower(-0.1);
+    	Arm.getInstance().setMotorPower(-0.35);
     }
  
     protected boolean isFinished() {

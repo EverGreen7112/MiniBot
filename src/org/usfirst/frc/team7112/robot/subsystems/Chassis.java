@@ -1,8 +1,8 @@
 package org.usfirst.frc.team7112.robot.subsystems;
 
-import static org.usfirst.frc.team7112.robot.RobotMap.Chassis_Victor_Back_Left;
+import static org.usfirst.frc.team7112.robot.RobotMap.Chassis_Victor_Left;
 //import static org.usfirst.frc.team7112.robot.RobotMap.Chassis_Victor_Back_Right;
-import static org.usfirst.frc.team7112.robot.RobotMap.Chassis_Victor_Front_Left;
+import static org.usfirst.frc.team7112.robot.RobotMap.Chassis_Victor_Right;
 //import static org.usfirst.frc.team7112.robot.RobotMap.Chassis_Victor_Front_Right;
 import static org.usfirst.frc.team7112.robot.RobotMap.Chassis_Talon_Back_Right;
 import static org.usfirst.frc.team7112.robot.RobotMap.Chassis_Talon_Front_Right;
@@ -20,8 +20,8 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class Chassis extends Subsystem {
 	
-	private VictorSP Victor_Back_Left;
-	private VictorSP Victor_Front_Left;
+	private VictorSP VictorLeft;
+	private VictorSP VictorRight;
 	private WPI_TalonSRX Talon_Back_Right;
 	private WPI_TalonSRX Talon_Front_Right;
 	private static Chassis instance;
@@ -31,13 +31,10 @@ public class Chassis extends Subsystem {
 	private double driveMultiplier;
 	
 	private Chassis() {
-		Victor_Back_Left = new VictorSP(Chassis_Victor_Back_Left);
-		Victor_Front_Left = new VictorSP(Chassis_Victor_Front_Left);
-		Talon_Back_Right = new WPI_TalonSRX(Chassis_Talon_Back_Right);
-		Talon_Front_Right = new WPI_TalonSRX(Chassis_Talon_Front_Right);
-		left = new SpeedControllerGroup(Victor_Front_Left, Victor_Back_Left);
-		right = new SpeedControllerGroup(Talon_Front_Right, Talon_Back_Right);
-		m_Driver = new DifferentialDrive(left,right);
+		VictorLeft = new VictorSP(Chassis_Victor_Left);
+		VictorRight = new VictorSP(Chassis_Victor_Right);
+
+		m_Driver = new DifferentialDrive(VictorLeft,VictorRight);
 		driveMultiplier = 0.5;
 	}
 	
