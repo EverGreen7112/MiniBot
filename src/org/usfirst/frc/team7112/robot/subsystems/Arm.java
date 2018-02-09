@@ -46,10 +46,18 @@ public class Arm extends Subsystem {
 	}
 	
 	private static void useMotors(){
-		OI.getInstance().GetXButton().whenPressed(new ArmOpen());
-		OI.getInstance().GetBButton().whenPressed(new ArmClose());
-		OI.getInstance().GetXButton().whenReleased(new StopMotor());
-		OI.getInstance().GetBButton().whenReleased(new StopMotor());
+		if(OI.getInstance().GetPOV()==0)
+		{
+			new ArmOpen();
+		}
+		if(OI.getInstance().GetPOV()==180)
+		{
+			new ArmClose();
+		}
+		if(OI.getInstance().GetPOV()==-1)
+		{
+			new StopMotor();
+		}
 	}
 	
 	public boolean isPressed(){

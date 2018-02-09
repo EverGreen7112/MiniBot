@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team7112.robot.subsystems.Arm;
 import org.usfirst.frc.team7112.robot.subsystems.Chassis;
-import org.usfirst.frc.team7112.robot.subsystems.test;
 import org.usfirst.frc.team7112.robot.OI;
 
 /**
@@ -34,7 +33,6 @@ public class Robot extends IterativeRobot {
 		OI.init();
 		Chassis.init();
 		Arm.init();
-		test.init();
 	}
 	
 	/**

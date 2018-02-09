@@ -1,18 +1,19 @@
 package org.usfirst.frc.team7112.robot.commands;
 
-import org.usfirst.frc.team7112.robot.OI;
-import org.usfirst.frc.team7112.robot.subsystems.test;
+import org.usfirst.frc.team7112.robot.subsystems.Chassis;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class testClaw extends Command {
+public class SetMotorPower extends Command {
 
-    public testClaw() {
+	private double power;
+    public SetMotorPower(double power) {
         // Use requires() here to declare subsystem dependencies
-        requires(test.getInstance());
+         requires(Chassis.getInstance());
+         this.power = power;
     }
 
     // Called just before this Command runs the first time
@@ -21,15 +22,12 @@ public class testClaw extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(OI.getInstance().GetLTAxis()>0)
-    		test.getInstance().setMotorPower(OI.getInstance().GetLTAxis()*0.5);
-    	else
-    		test.getInstance().setMotorPower(-OI.getInstance().GetRTAxis()*0.9);
+    	Chassis.getInstance().setDriveMultiplier(power);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

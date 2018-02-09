@@ -13,39 +13,38 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 
-	public Joystick JS = new Joystick(0);
-	Button button_X = new JoystickButton(JS, 3);
-	Button button_B = new JoystickButton(JS, 2);
+	public Joystick DrivingJS = new Joystick(0);
+	Button buttonTrigger = new JoystickButton(DrivingJS, 1);
+	Button buttonThumb = new JoystickButton(DrivingJS, 2);
 
 	private static OI instance;
 	
-	public Button GetXButton(){
-		return button_X;
+	public Button GetButtonTrigger(){
+		return buttonTrigger;
 	}
 	
-	public Button GetBButton(){
-		return button_B;
+	public Button GetButtonThumb(){
+		return buttonThumb;
 	}
-	
 	
 	public double GetXAxis() {
-		return JS.getRawAxis(0);
+		return DrivingJS.getRawAxis(0);
 	}
 	
 	public double GetYAxis() {
-		return JS.getRawAxis(1);
+		return DrivingJS.getRawAxis(1);
 	}
 	
-	public double GetRTAxis() {
-		return JS.getRawAxis(3);
+	public double GetRotateAxix(){
+		return DrivingJS.getRawAxis(2);
 	}
 	
-	public double GetLTAxis() {
-		return JS.getRawAxis(2);
+	public double GetSliderAxis(){
+		return DrivingJS.getRawAxis(3);
 	}
 	
 	public int GetPOV(){
-		return JS.getPOV(0);
+		return DrivingJS.getPOV(0);
 	}
 	
 	public static final OI getInstance() {
