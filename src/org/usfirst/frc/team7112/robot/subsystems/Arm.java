@@ -8,8 +8,7 @@ import org.usfirst.frc.team7112.robot.OI;
 import org.usfirst.frc.team7112.robot.commands.ArmClose;
 import org.usfirst.frc.team7112.robot.commands.ArmOpen;
 import org.usfirst.frc.team7112.robot.commands.StopMotor;
-
-
+import org.usfirst.frc.team7112.robot.commands.UseArm;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Spark;
@@ -45,7 +44,7 @@ public class Arm extends Subsystem {
 		m_Motor1.stopMotor();
 	}
 	
-	private static void useMotors(){
+	public void useMotors(){
 		if(OI.getInstance().GetPOV()==0)
 		{
 			new ArmOpen();
@@ -70,7 +69,6 @@ public class Arm extends Subsystem {
 	
 	public static final void init() {
 		instance = new Arm();
-		useMotors();
 	}
 
 	public static final Arm getInstance() {
@@ -78,6 +76,7 @@ public class Arm extends Subsystem {
 	}
 		
     public void initDefaultCommand() {
+    	setDefaultCommand(new UseArm());
     }
 }
 

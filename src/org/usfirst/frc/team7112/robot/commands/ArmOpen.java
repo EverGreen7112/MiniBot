@@ -1,5 +1,6 @@
 package org.usfirst.frc.team7112.robot.commands;
 
+import org.usfirst.frc.team7112.robot.OI;
 import org.usfirst.frc.team7112.robot.subsystems.Arm;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -20,8 +21,11 @@ public class ArmOpen extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(Arm.getInstance().isPressed2())
+    	if(Arm.getInstance().isPressed2()&&OI.getInstance().GetPOV()==0)
     	Arm.getInstance().setMotorPower(-0.35);
+    	else
+    		if(OI.getInstance().GetPOV()==-1)
+    			Arm.getInstance().stopMotor();
     }
  
     protected boolean isFinished() {

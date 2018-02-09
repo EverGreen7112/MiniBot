@@ -24,12 +24,12 @@ public class ArcadeDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Chassis.getInstance().arcadeDrive(-OI.getInstance().GetYAxis()*Chassis.getInstance().getDriveMultiplier()*-1, -OI.getInstance().GetXAxis()*Chassis.getInstance().getDriveMultiplier()*-1);
-    	//Chassis.getInstance().arcadeDrive(0, -OI.getInstance().GetSliderAxis()*Chassis.getInstance().getDriveMultiplierSlow());
+    	Chassis.getInstance().arcadeDrive(OI.getInstance().GetYAxis()*Chassis.getInstance().getDriveMultiplier(), OI.getInstance().GetXAxis()*Chassis.getInstance().getDriveMultiplier());
+    	Chassis.getInstance().arcadeDrive(0, -OI.getInstance().GetRotateAxix()*Chassis.getInstance().getDriveMultiplierSlow());
     	OI.getInstance().GetButtonTrigger().whenPressed(new SetMotorPower(0.7));
     	OI.getInstance().GetButtonTrigger().whenReleased(new SetMotorPower(0.3));
     	SmartDashboard.putBoolean("triggerButton", OI.getInstance().GetButtonTrigger().get());
-    	
+    	SmartDashboard.putNumber("Driving Multiplier", Chassis.getInstance().getDriveMultiplier());
     }
 
     // Make this return true when this Command no longer needs to run execute()

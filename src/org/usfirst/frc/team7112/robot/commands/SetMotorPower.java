@@ -11,9 +11,8 @@ public class SetMotorPower extends Command {
 
 	private double power;
     public SetMotorPower(double power) {
-        // Use requires() here to declare subsystem dependencies
-         requires(Chassis.getInstance());
-         this.power = power;
+        requires(Chassis.getInstance());
+        this.power = power;
     }
 
     // Called just before this Command runs the first time
@@ -37,5 +36,6 @@ public class SetMotorPower extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
