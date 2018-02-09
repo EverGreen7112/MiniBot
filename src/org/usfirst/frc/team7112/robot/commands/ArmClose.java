@@ -24,9 +24,9 @@ public class ArmClose extends Command {
     protected void execute() {
     	if(Arm.getInstance().isPressed() && OI.getInstance().GetPOV()==180)
     	Arm.getInstance().setMotorPower(0.3);
-    	else
+    	/*else
     		if(OI.getInstance().GetPOV()==-1)
-    			Arm.getInstance().stopMotor();
+    			Arm.getInstance().stopMotor();*/
     }
     
     // Make this return true when this Command no longer needs to run execute()

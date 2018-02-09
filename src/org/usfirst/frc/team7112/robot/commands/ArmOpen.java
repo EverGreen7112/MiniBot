@@ -23,9 +23,9 @@ public class ArmOpen extends Command {
     protected void execute() {
     	if(Arm.getInstance().isPressed2()&&OI.getInstance().GetPOV()==0)
     	Arm.getInstance().setMotorPower(-0.35);
-    	else
+    	/*else
     		if(OI.getInstance().GetPOV()==-1)
-    			Arm.getInstance().stopMotor();
+    			Arm.getInstance().stopMotor();*/
     }
  
     protected boolean isFinished() {

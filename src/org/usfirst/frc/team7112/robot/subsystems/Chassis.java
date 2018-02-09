@@ -16,16 +16,14 @@ public class Chassis extends Subsystem {
 	private VictorSP VictorRight;
 	private static Chassis instance;
 	private DifferentialDrive m_Driver;
-	private double driveMultiplier;
-	private double driveMultiplierSlow;
+	private double driveMultiplier = 0.6;
+	private final double driveMultiplierSlow = 0.4;
 	
 	private Chassis() {
 		VictorLeft = new VictorSP(Chassis_Victor_Left);
 		VictorRight = new VictorSP(Chassis_Victor_Right);
-
 		m_Driver = new DifferentialDrive(VictorLeft,VictorRight);
 		driveMultiplier = 0.5;
-		driveMultiplierSlow = 0.3;
 	}
 	
 	public double getDriveMultiplierSlow(){

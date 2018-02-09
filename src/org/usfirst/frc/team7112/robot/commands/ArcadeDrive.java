@@ -11,9 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class ArcadeDrive extends Command {
 
-    public ArcadeDrive() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public ArcadeDrive() {;
     	requires(Chassis.getInstance());
     }
 
@@ -25,11 +23,15 @@ public class ArcadeDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Chassis.getInstance().arcadeDrive(OI.getInstance().GetYAxis()*Chassis.getInstance().getDriveMultiplier(), OI.getInstance().GetXAxis()*Chassis.getInstance().getDriveMultiplier());
-    	Chassis.getInstance().arcadeDrive(0, -OI.getInstance().GetRotateAxix()*Chassis.getInstance().getDriveMultiplierSlow());
+    	if(OI.getInstance().GetRotateAxix()>0.1)
+    		Chassis.getInstance().arcadeDrive(0, -OI.getInstance().GetRotateAxix()*Chassis.getInstance().getDriveMultiplierSlow());
     	OI.getInstance().GetButtonTrigger().whenPressed(new SetMotorPower(0.7));
     	OI.getInstance().GetButtonTrigger().whenReleased(new SetMotorPower(0.3));
     	SmartDashboard.putBoolean("triggerButton", OI.getInstance().GetButtonTrigger().get());
     	SmartDashboard.putNumber("Driving Multiplier", Chassis.getInstance().getDriveMultiplier());
+    	SmartDashboard.putNumber("Drive Axis Y", OI.getInstance().GetYAxis());
+    	SmartDashboard.putNumber("Drive Axis X", OI.getInstance().GetXAxis());
+
     }
 
     // Make this return true when this Command no longer needs to run execute()

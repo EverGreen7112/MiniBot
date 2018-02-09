@@ -47,15 +47,17 @@ public class Arm extends Subsystem {
 	public void useMotors(){
 		if(OI.getInstance().GetPOV()==0)
 		{
-			new ArmOpen();
+			if(isPressed2())
+		    	setMotorPower(-0.35);
 		}
 		if(OI.getInstance().GetPOV()==180)
 		{
-			new ArmClose();
+			if(isPressed())
+		    	setMotorPower(0.3);
 		}
 		if(OI.getInstance().GetPOV()==-1)
 		{
-			new StopMotor();
+			stopMotor();
 		}
 	}
 	
